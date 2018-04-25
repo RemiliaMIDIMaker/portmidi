@@ -17,17 +17,14 @@ if (UNIX)
 	if (APPLE)
 		message(Apple)
 		aux_source_directory(source/platform/mac PLATFROM_SOURCE_FILES)
-		# TODO
 	else (APPLE)
 		message(Linux)
 		add_definitions(-DPMALSA)
 		aux_source_directory(source/platform/linux PLATFROM_SOURCE_FILES)
-		set(PM_NEEDED_LIBS pthread asound)
 	endif (APPLE)
 else (UNIX)
 	message(Windows)
 	aux_source_directory(source/platform/win PLATFROM_SOURCE_FILES)
-	set(PM_NEEDED_LIBS winmm)
 endif (UNIX)
 
 add_library (
@@ -36,4 +33,3 @@ add_library (
 		${COMMON_SOURCE_FILES}
 		${PLATFROM_SOURCE_FILES}
 )
-target_link_libraries(portmidi ${PM_NEEDED_LIBS})
