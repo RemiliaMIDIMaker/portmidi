@@ -639,7 +639,7 @@ PMEXPORT PmError Pm_Write( PortMidiStream *stream, PmEvent *buffer, int32_t leng
     non-decreasing. (But timestamps are ignored if the stream was opened
     with latency = 0.)
 */
-PMEXPORT PmError Pm_WriteShort( PortMidiStream *stream, PmTimestamp when, int32_t msg);
+PMEXPORT PmError Pm_WriteShort( PortMidiStream *stream, PmTimestamp when, PmMessage msg);
 
 /**
     Pm_WriteSysEx() writes a timestamped system-exclusive midi message.
